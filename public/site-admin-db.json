@@ -1,0 +1,199 @@
+{
+  "version": 1,
+  "updatedAt": "2026-07-25T00:00:00.000Z",
+  "currentConfig": {
+    "branding": {
+      "locale": "pt-BR",
+      "siteTitle": "Landing page para vender mais | Hunt Digital",
+      "brandName": "Hunt Digital",
+      "brandSubtitle": "Paginas que vendem",
+      "logoUrl": "./brand/hunt-logo.png",
+      "faviconUrl": "./brand/hunt-favicon.png"
+    },
+    "contact": {
+      "whatsappNumber": "5531999617435",
+      "whatsappDisplay": "+55 31 9961-7435",
+      "email": "contato@huntdigital.com.br",
+      "instagramUrl": "https://www.instagram.com/huntdigitalconsultoria/",
+      "instagramDisplay": "@huntdigitalconsultoria",
+      "defaultMessage": "Ola! Vim pela landing da Hunt Digital e quero saber mais sobre a pagina de R$ 249,99."
+    },
+    "offer": {
+      "badge": "Oferta de entrada",
+      "priceLabel": "Pagina unica profissional",
+      "priceDisplay": "R$ 249,99",
+      "priceCaption": "Layout sob medida, mobile-first e pronto para conversao.",
+      "note": "Ideal para campanhas, negocios locais e ofertas que precisam entrar no ar rapido.",
+      "ctaLabel": "Falar com a Hunt agora"
+    },
+    "colors": {
+      "background": "#050505",
+      "surface": "#101010",
+      "surfaceStrong": "#171717",
+      "foreground": "#fbfbfb",
+      "foregroundMuted": "#c7c7c7",
+      "brand": "#ec3938",
+      "brandStrong": "#ff5b59",
+      "brandForeground": "#fff7f7",
+      "border": "rgba(236, 57, 56, 0.28)",
+      "ring": "rgba(236, 57, 56, 0.52)",
+      "whatsapp": "#25d366",
+      "whatsappForeground": "#f7fff9"
+    },
+    "seo": {
+      "title": "Landing page para vender mais | Hunt Digital",
+      "description": "Landing page personalizada por R$ 249,99 com visual profissional, CTA para WhatsApp, SEO base e estrutura pronta para trafego.",
+      "keywords": "landing page, pagina unica, pagina de vendas, site profissional, hunt digital, landing page para trafego, landing page responsiva",
+      "canonicalUrl": "https://guilherme-cesar-oliveira.github.io/pagina-que-vende-pagina/",
+      "robots": "index,follow",
+      "ogTitle": "Landing page que vende | Hunt Digital",
+      "ogDescription": "Pagina unica profissional por R$ 249,99 com foco em conversao, WhatsApp e estrutura pronta para campanhas.",
+      "ogImage": "./brand/hunt-og.jpeg",
+      "ogType": "website",
+      "twitterCard": "summary_large_image",
+      "themeColor": "#050505"
+    },
+    "tracking": {
+      "facebookPixelId": ""
+    },
+    "snippets": {
+      "head": "",
+      "body": ""
+    },
+    "header": {
+      "badgeText": "Hunt Digital apresenta",
+      "ctaLabel": "Chamar no WhatsApp"
+    },
+    "hero": {
+      "eyebrow": "Pagina curta, forte e feita para puxar clique",
+      "titleLineOne": "LANDING PAGE",
+      "titleLineTwo": "PRONTA PRA",
+      "titleHighlight": "CONVERTER.",
+      "description": "Site profissional de pagina unica por apenas R$ 249,99 para apresentar sua oferta, valorizar sua marca e abrir conversa com quem chegou da campanha.",
+      "proofItems": [
+        "Design mobile-first",
+        "Copy direta para venda",
+        "Estrutura pronta para trafego"
+      ],
+      "primaryCtaLabel": "Quero vender mais",
+      "secondaryCtaLabel": "Ver o que esta incluso"
+    },
+    "benefitsSection": {
+      "eyebrow": "Por que funciona",
+      "title": "Menos enrolacao. Mais clique qualificado.",
+      "description": "A pagina entra no ponto rapido: explica a oferta, reduz friccao e empurra a pessoa para o WhatsApp."
+    },
+    "benefits": [
+      {
+        "icon": "rocket",
+        "title": "Visual que chama",
+        "description": "Layout de impacto com leitura limpa e identidade alinhada para campanha."
+      },
+      {
+        "icon": "target",
+        "title": "CTA no lugar certo",
+        "description": "Botoes e blocos organizados para facilitar o proximo passo do visitante."
+      },
+      {
+        "icon": "bolt",
+        "title": "Leve para anunciar",
+        "description": "Estrutura enxuta, responsiva e pensada para carregar rapido no mobile."
+      },
+      {
+        "icon": "mobile",
+        "title": "Feita para celular",
+        "description": "A maior parte do trafego cai no smartphone, entao o foco comeca nele."
+      }
+    ],
+    "includedSection": {
+      "eyebrow": "O que esta incluso",
+      "title": "Tudo o que precisa para sair do zero.",
+      "description": "Sem empilhar secoes desnecessarias. O pacote foi montado para publicar rapido e converter melhor."
+    },
+    "included": [
+      {
+        "icon": "layout",
+        "title": "Landing personalizada",
+        "description": "Pagina unica com copy adaptada ao negocio, CTA forte e identidade visual coerente."
+      },
+      {
+        "icon": "spark",
+        "title": "Responsiva de verdade",
+        "description": "Layout ajustado para celular, tablet e desktop sem quebrar a leitura."
+      },
+      {
+        "icon": "search",
+        "title": "SEO base + Pixel",
+        "description": "Meta tags, Open Graph, dados estruturados e suporte nativo a Facebook Pixel."
+      },
+      {
+        "icon": "refresh",
+        "title": "Ate 2 revisoes",
+        "description": "Ajustes dentro do combinado para refinar a pagina antes da publicacao."
+      }
+    ],
+    "processSection": {
+      "eyebrow": "Como funciona",
+      "title": "Pouca digitacao. Mais contexto para o atendimento.",
+      "description": "O formulario pega so o essencial para a Hunt nao receber lead em branco e responder mais rapido."
+    },
+    "process": [
+      {
+        "number": "01",
+        "title": "Voce responde o basico",
+        "description": "Nome, WhatsApp, negocio e o que a pagina precisa gerar."
+      },
+      {
+        "number": "02",
+        "title": "A conversa abre pronta",
+        "description": "O WhatsApp ja sai com mensagem organizada e, quando existir, leva as UTMs da campanha."
+      },
+      {
+        "number": "03",
+        "title": "A Hunt conduz o proximo passo",
+        "description": "Briefing, alinhamento e execucao andam sem ida e volta desnecessaria."
+      }
+    ],
+    "formSection": {
+      "eyebrow": "Comece agora",
+      "title": "Me passa o essencial e vamos falar.",
+      "description": "Leva menos de um minuto para abrir a conversa com a Hunt Digital do jeito certo.",
+      "helperText": "Ao enviar, o WhatsApp abre com sua mensagem pronta para a Hunt Digital.",
+      "submitLabel": "Enviar para o WhatsApp"
+    },
+    "form": {
+      "nameLabel": "Nome",
+      "namePlaceholder": "Como voce se chama?",
+      "phoneLabel": "WhatsApp",
+      "phonePlaceholder": "(00) 00000-0000",
+      "businessLabel": "Qual e o seu negocio?",
+      "businessPlaceholder": "Ex: clinica, barbearia, imobiliaria",
+      "goalLabel": "O que sua pagina precisa gerar?",
+      "goalPlaceholder": "Selecione um objetivo",
+      "goalOptions": [
+        "Vender servico",
+        "Captar leads",
+        "Receber orcamentos",
+        "Apresentar empresa",
+        "Outro"
+      ],
+      "validationNameRequired": "Preencha seu nome.",
+      "validationPhoneRequired": "Informe um WhatsApp para contato.",
+      "validationBusinessRequired": "Conte qual e o seu negocio.",
+      "validationGoalRequired": "Escolha o objetivo principal da pagina."
+    },
+    "closing": {
+      "eyebrow": "Pronto para anunciar?",
+      "title": "Coloque sua oferta no ar com uma pagina que puxa resposta.",
+      "description": "Se a campanha vai rodar, a pagina precisa acompanhar. Fale com a Hunt e tire essa entrega do papel.",
+      "ctaLabel": "Abrir WhatsApp agora"
+    },
+    "footer": {
+      "legalText": "Hunt Digital Consultoria · Paginas que vendem com foco em conversao · © 2026",
+      "supportText": "Landing page enxuta para campanha, oferta direta e atendimento rapido pelo WhatsApp.",
+      "whatsappLabelPrefix": "WhatsApp",
+      "emailLabel": "E-mail",
+      "instagramLabel": "Instagram"
+    }
+  }
+}
