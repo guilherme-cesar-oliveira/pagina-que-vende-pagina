@@ -46,6 +46,7 @@
 
   body {
     min-width: 320px;
+    overflow-x: hidden;
     background:
       radial-gradient(circle at top right, rgba(236, 57, 56, 0.16), transparent 22%),
       radial-gradient(circle at 15% 15%, rgba(255, 255, 255, 0.035), transparent 18%),
@@ -99,6 +100,7 @@
   .site-shell {
     position: relative;
     isolation: isolate;
+    overflow-x: clip;
     background-color: var(--background);
     background-image:
       linear-gradient(rgba(236, 57, 56, 0.045) 1px, transparent 1px),
@@ -237,11 +239,11 @@
   }
 
   .offer-card-main {
-    @apply space-y-4;
+    @apply min-w-0 space-y-4;
   }
 
   .offer-card-side {
-    @apply flex items-stretch;
+    @apply flex min-w-0 items-stretch;
   }
 
   .offer-card-side > * {
@@ -269,11 +271,15 @@
   }
 
   .offer-highlight-row {
-    @apply flex items-center gap-3 px-3.5 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-foreground sm:px-4 sm:tracking-[0.14em];
+    @apply flex min-w-0 items-center gap-3 px-3.5 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-foreground sm:px-4 sm:tracking-[0.14em];
   }
 
   .offer-highlight-row + .offer-highlight-row {
     @apply border-t border-brand/12;
+  }
+
+  .offer-highlight-row span {
+    @apply min-w-0;
   }
 
   .benefit-strip {
@@ -348,6 +354,12 @@
   .quote-panel [data-slot='input'],
   .quote-panel [data-slot='select-trigger'] {
     border-color: rgba(236, 57, 56, 0.26);
+  }
+
+  .quote-panel form,
+  .quote-panel form > div,
+  .quote-panel form > div > div {
+    @apply min-w-0;
   }
 
   .form-error {

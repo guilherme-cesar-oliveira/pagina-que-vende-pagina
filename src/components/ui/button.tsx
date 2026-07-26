@@ -5,7 +5,7 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-[4px] text-sm font-semibold uppercase tracking-[0.22em] transition-[transform,background-color,color,border-color,box-shadow,filter] duration-300 ease-out outline-none focus-visible:ring-2 focus-visible:ring-ring/80 focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-55 active:translate-y-0 [&_svg]:pointer-events-none [&_svg]:shrink-0',
+  'inline-flex min-w-0 max-w-full items-center justify-center gap-2 rounded-[4px] text-center text-sm font-semibold uppercase leading-tight tracking-[0.16em] whitespace-normal break-words transition-[transform,background-color,color,border-color,box-shadow,filter] duration-300 ease-out outline-none focus-visible:ring-2 focus-visible:ring-ring/80 focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-55 active:translate-y-0 sm:tracking-[0.22em] sm:whitespace-nowrap [&_svg]:pointer-events-none [&_svg]:shrink-0',
   {
     variants: {
       variant: {
@@ -18,8 +18,8 @@ const buttonVariants = cva(
         ghost: 'text-foreground hover:text-brand',
       },
       size: {
-        default: 'h-14 px-6 text-sm sm:h-15 sm:px-7',
-        lg: 'h-16 px-7 text-base sm:px-8',
+        default: 'h-14 px-4 text-sm sm:h-15 sm:px-7',
+        lg: 'h-14 px-4 text-sm sm:h-16 sm:px-8 sm:text-base',
         icon: 'size-14 rounded-full',
       },
     },

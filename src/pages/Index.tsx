@@ -596,7 +596,7 @@ function Index() {
                     <p className="offer-badge">
                       <span className="motion-type">{currentConfig.offer.badge}</span>
                     </p>
-                    <p className="text-sm font-semibold uppercase tracking-[0.28em] text-foreground-muted">
+                    <p className="max-w-full pr-8 text-sm font-semibold uppercase tracking-[0.16em] text-foreground-muted sm:tracking-[0.28em]">
                       {currentConfig.offer.priceLabel}
                     </p>
                   </div>
@@ -633,7 +633,7 @@ function Index() {
                 <Button
                   type="button"
                   size="lg"
-                  className="mt-6 w-full motion-pulse-soft"
+                  className="mt-6 w-full motion-pulse-soft px-4 text-[0.9rem] tracking-[0.12em] sm:px-8 sm:text-base sm:tracking-[0.22em]"
                   onClick={() => handleContactClick(genericWhatsAppUrl)}
                 >
                   <ScribbleIcon name="chat" className="size-5" />
@@ -708,7 +708,10 @@ function Index() {
                   </div>
 
                   <div className="space-y-6">
-                    <Label htmlFor="goal" className="block leading-[1.35]">
+                    <Label
+                      htmlFor="goal"
+                      className="block max-w-full whitespace-normal break-words leading-[1.35]"
+                    >
                       {currentConfig.form.goalLabel}
                     </Label>
                     <Select
@@ -743,7 +746,7 @@ function Index() {
                     type="submit"
                     variant="whatsapp"
                     size="lg"
-                    className="w-full"
+                    className="w-full px-4 text-[0.9rem] tracking-[0.12em] sm:px-8 sm:text-base sm:tracking-[0.22em]"
                   >
                     <ScribbleIcon name="chat" className="size-5" />
                     {currentConfig.formSection.submitLabel}
