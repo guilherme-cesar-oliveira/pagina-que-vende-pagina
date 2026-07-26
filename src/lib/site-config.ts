@@ -172,9 +172,9 @@ export function createFallbackSiteConfig(): SiteConfig {
   return {
     branding: {
       locale: 'pt-BR',
-      siteTitle: 'Landing page para vender mais | Hunt Digital',
+      siteTitle: 'Landing Page Personalizada Pra Converter | Hunt Digital',
       brandName: 'Hunt Digital',
-      brandSubtitle: 'Paginas que vendem',
+      brandSubtitle: 'Páginas que vendem',
       logoUrl: './brand/hunt-icon.svg',
       faviconUrl: './brand/hunt-icon.svg',
     },
@@ -185,29 +185,29 @@ export function createFallbackSiteConfig(): SiteConfig {
       instagramUrl: 'https://www.instagram.com/huntdigitalconsultoria/',
       instagramDisplay: '@huntdigitalconsultoria',
       defaultMessage:
-        'Ola! Vim pela landing da Hunt Digital e quero saber mais sobre a pagina de R$ 249,99.',
+        'Olá! Vim pela landing da Hunt Digital e quero saber mais sobre a página de R$ 249,99.',
     },
     offer: {
-      badge: 'Oferta de entrada',
-      priceLabel: 'Pagina unica profissional',
+      badge: 'Valor único, sem recorrência.',
+      priceLabel: 'Página profissional',
       priceDisplay: 'R$ 249,99',
-      priceCaption: 'Layout sob medida, mobile-first e pronto para conversao.',
-      note: 'Ideal para campanhas, negocios locais e ofertas que precisam entrar no ar rapido.',
+      priceCaption: 'Layout sob medida, mobile-first e pronto para conversão.',
+      note: 'Ideal para campanhas, negócios locais e ofertas que precisam entrar no ar rápido.',
       ctaLabel: 'Falar com a Hunt agora',
     },
     colors: { ...DEFAULT_THEME_COLORS },
     seo: {
-      title: 'Landing page para vender mais | Hunt Digital',
+      title: 'Landing Page Personalizada Pra Converter | Hunt Digital',
       description:
-        'Landing page personalizada por R$ 249,99 com visual profissional, CTA para WhatsApp, SEO base e estrutura pronta para trafego.',
+        'Landing page personalizada por R$ 249,99 para apresentar sua oferta, valorizar sua marca e abrir conversa no WhatsApp com mais percepção de valor.',
       keywords:
-        'landing page, pagina unica, pagina de vendas, site profissional, hunt digital, landing page para trafego, landing page responsiva',
+        'landing page, página única, página de vendas, site profissional, hunt digital, landing page para tráfego, landing page responsiva',
       canonicalUrl:
         'https://guilherme-cesar-oliveira.github.io/pagina-que-vende-pagina/',
       robots: 'index,follow',
-      ogTitle: 'Landing page que vende | Hunt Digital',
+      ogTitle: 'Landing Page Personalizada Pra Converter | Hunt Digital',
       ogDescription:
-        'Pagina unica profissional por R$ 249,99 com foco em conversao, WhatsApp e estrutura pronta para campanhas.',
+        'Landing page personalizada por R$ 249,99 para apresentar sua oferta, valorizar sua marca e abrir conversa no WhatsApp com mais percepção de valor.',
       ogImage: './brand/hunt-og.jpeg',
       ogType: 'website',
       twitterCard: 'summary_large_image',
@@ -225,113 +225,89 @@ export function createFallbackSiteConfig(): SiteConfig {
       ctaLabel: 'Chamar no WhatsApp',
     },
     hero: {
-      eyebrow: 'Pagina curta, forte e feita para puxar clique',
+      eyebrow: 'Página forte e feita para puxar clique',
       titleLineOne: 'LANDING PAGE',
-      titleLineTwo: 'PRONTA PRA',
+      titleLineTwo: 'PERSONALIZADA PRA',
       titleHighlight: 'CONVERTER.',
       description:
-        'Site profissional de pagina unica por apenas R$ 249,99 para apresentar sua oferta, valorizar sua marca e abrir conversa com quem chegou da campanha.',
+        'Site profissional de página única por apenas R$ 249,99 para apresentar sua oferta, valorizar sua marca e abrir conversa com uma percepção de valor muito maior.',
       proofItems: [
         'Design mobile-first',
         'Copy direta para venda',
-        'Estrutura pronta para trafego',
+        'Estrutura pronta para tráfego',
       ],
-      primaryCtaLabel: 'Quero vender mais',
-      secondaryCtaLabel: 'Ver o que esta incluso',
+      primaryCtaLabel: 'Quero minha página',
+      secondaryCtaLabel: 'Ver o que está incluso',
     },
     benefitsSection: {
       eyebrow: 'Por que funciona',
-      title: 'Menos enrolacao. Mais clique qualificado.',
+      title: 'Menos enrolação. Mais clique qualificado.',
       description:
-        'A pagina entra no ponto rapido: explica a oferta, reduz friccao e empurra a pessoa para o WhatsApp.',
+        'A página entra no ponto certo: explica a oferta e empurra a pessoa para o WhatsApp só fechar.',
     },
     benefits: [
       {
-        icon: 'rocket',
-        title: 'Visual que chama',
+        icon: 'layout',
+        title: 'Layout 100% personalizado',
         description:
-          'Layout de impacto com leitura limpa e identidade alinhada para campanha.',
-      },
-      {
-        icon: 'target',
-        title: 'CTA no lugar certo',
-        description:
-          'Botoes e blocos organizados para facilitar o proximo passo do visitante.',
+          'Página única com copy adaptada ao negócio, CTA forte e sua identidade visual.',
       },
       {
         icon: 'bolt',
-        title: 'Leve para anunciar',
-        description:
-          'Estrutura enxuta, responsiva e pensada para carregar rapido no mobile.',
-      },
-      {
-        icon: 'mobile',
-        title: 'Feita para celular',
-        description:
-          'A maior parte do trafego cai no smartphone, entao o foco comeca nele.',
+        title: 'Prazo',
+        description: 'Em até 48h após o envio do briefing.',
       },
     ],
     includedSection: {
-      eyebrow: 'O que esta incluso',
+      eyebrow: 'O que está incluso',
       title: 'Tudo o que precisa para sair do zero.',
       description:
-        'Sem empilhar secoes desnecessarias. O pacote foi montado para publicar rapido e converter melhor.',
+        'Sem empilhar seções desnecessárias. A página é criada e guiada por nossos especialistas em marketing para ser intuitiva ao cliente e converter rápido.',
     },
     included: [
       {
-        icon: 'layout',
-        title: 'Landing personalizada',
-        description:
-          'Pagina unica com copy adaptada ao negocio, CTA forte e identidade visual coerente.',
-      },
-      {
-        icon: 'spark',
+        icon: 'mobile',
         title: 'Responsiva de verdade',
         description:
           'Layout ajustado para celular, tablet e desktop sem quebrar a leitura.',
       },
       {
-        icon: 'search',
-        title: 'SEO base + Pixel',
-        description:
-          'Meta tags, Open Graph, dados estruturados e suporte nativo a Facebook Pixel.',
-      },
-      {
         icon: 'refresh',
-        title: 'Ate 2 revisoes',
+        title: 'Revisões inclusas',
         description:
-          'Ajustes dentro do combinado para refinar a pagina antes da publicacao.',
+          'Ajustes conforme regulamento para refinar a página antes da publicação.',
       },
     ],
     processSection: {
       eyebrow: 'Como funciona',
-      title: 'Pouca digitacao. Mais contexto para o atendimento.',
+      title:
+        'Menos tempo qualificando e mais fechamento: quem chega até você já conhece os seus serviços.',
       description:
-        'O formulario pega so o essencial para a Hunt nao receber lead em branco e responder mais rapido.',
+        'O formulário pega só o essencial para você não receber lead em branco e responder mais rápido.',
     },
     process: [
       {
         number: '01',
-        title: 'Voce responde o basico',
+        title: 'Você responde a um questionário:',
         description:
-          'Nome e o objetivo principal da pagina. O minimo para a Hunt responder com contexto.',
+          'Entendemos sua empresa, suas características e o que você quer na página, para personalizar tudo.',
       },
       {
         number: '02',
-        title: 'A conversa abre pronta',
+        title: 'Estruturação interna:',
         description:
-          'O WhatsApp ja sai com mensagem organizada e, quando existir, leva as UTMs da campanha.',
+          'Nosso time de especialistas em marketing junto com os desenvolvedores criam toda a estrutura da sua página.',
       },
       {
         number: '03',
-        title: 'A Hunt conduz o proximo passo',
+        title: 'Aprovação e entrega:',
         description:
-          'Briefing, alinhamento e execucao andam sem ida e volta desnecessaria.',
+          'Você aprova ou nos passa as revisões, e te enviamos o link da página 100% personalizada assim como suas preferências.',
       },
     ],
     formSection: {
       eyebrow: 'Comece agora',
-      title: 'Me passa o essencial e vamos falar.',
+      title: 'Preencha aqui e vamos alinhar tudo no WhatsApp.',
       description:
         'Leva menos de um minuto para abrir a conversa com a Hunt Digital do jeito certo.',
       helperText:
@@ -340,37 +316,37 @@ export function createFallbackSiteConfig(): SiteConfig {
     },
     form: {
       nameLabel: 'Nome',
-      namePlaceholder: 'Como voce se chama?',
+      namePlaceholder: 'Como você se chama?',
       phoneLabel: 'WhatsApp',
       phonePlaceholder: '(00) 00000-0000',
-      businessLabel: 'Qual e o seu negocio?',
-      businessPlaceholder: 'Ex: clinica, barbearia, imobiliaria',
-      goalLabel: 'O que sua pagina precisa gerar?',
+      businessLabel: 'Qual é o seu negócio?',
+      businessPlaceholder: 'Ex: clínica, barbearia, imobiliária',
+      goalLabel: 'O que sua página precisa gerar?',
       goalPlaceholder: 'Selecione um objetivo',
       goalOptions: [
-        'Vender servico',
+        'Vender serviço',
         'Captar leads',
-        'Receber orcamentos',
+        'Receber orçamentos',
         'Apresentar empresa',
         'Outro',
       ],
       validationNameRequired: 'Preencha seu nome.',
       validationPhoneRequired: 'Informe um WhatsApp para contato.',
-      validationBusinessRequired: 'Conte qual e o seu negocio.',
-      validationGoalRequired: 'Escolha o objetivo principal da pagina.',
+      validationBusinessRequired: 'Conte qual é o seu negócio.',
+      validationGoalRequired: 'Escolha o objetivo principal da página.',
     },
     closing: {
       eyebrow: 'Pronto para anunciar?',
-      title: 'Coloque sua oferta no ar com uma pagina que puxa resposta.',
+      title: 'Coloque sua oferta no ar com uma página que puxa resposta.',
       description:
-        'Se a campanha vai rodar, a pagina precisa acompanhar. Fale com a Hunt e tire essa entrega do papel.',
+        'Se a campanha vai rodar, a página precisa acompanhar. Fale com a Hunt e tire essa entrega do papel.',
       ctaLabel: 'Abrir WhatsApp agora',
     },
     footer: {
       legalText:
-        'Hunt Digital Consultoria · Paginas que vendem com foco em conversao · © 2026',
+        'Hunt Digital Consultoria · Páginas que vendem com foco em conversão · © 2026',
       supportText:
-        'Landing page enxuta para campanha, oferta direta e atendimento rapido pelo WhatsApp.',
+        'Landing page personalizada para você, oferta direta e atendimento rápido pelo WhatsApp.',
       whatsappLabelPrefix: 'WhatsApp',
       emailLabel: 'E-mail',
       instagramLabel: 'Instagram',
@@ -381,7 +357,7 @@ export function createFallbackSiteConfig(): SiteConfig {
 export function createFallbackSiteDatabase(): SiteDatabase {
   return {
     version: 1,
-    updatedAt: '2026-07-25T00:00:00.000Z',
+    updatedAt: '2026-07-26T00:00:00.000Z',
     currentConfig: createFallbackSiteConfig(),
   }
 }

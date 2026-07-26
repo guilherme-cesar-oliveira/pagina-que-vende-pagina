@@ -33,7 +33,7 @@ const offerHighlights = [
   },
   {
     icon: 'spark',
-    label: 'Pronto para conversao',
+    label: 'Pronto para conversão',
   },
 ] as const
 
@@ -324,7 +324,7 @@ function BrandLockup({
           {brandSubtitle}
         </p>
         <p className="mt-1 text-xs font-medium uppercase tracking-[0.28em] text-foreground-muted lg:text-[0.8rem]">
-          Conversao com direcao
+          Conversão com direção
         </p>
       </div>
     </div>
@@ -546,10 +546,10 @@ function Index() {
                     <ScribbleIcon name={benefit.icon} className="size-6" />
                   </div>
                   <div className="space-y-3">
-                    <h3 className="display-title text-[2rem] text-foreground sm:text-[2.3rem]">
+                    <h3 className="section-card-title">
                       {benefit.title}
                     </h3>
-                    <p className="text-base leading-relaxed text-foreground-muted sm:text-lg">
+                    <p className="section-card-copy">
                       {benefit.description}
                     </p>
                   </div>
@@ -574,10 +574,10 @@ function Index() {
                     <ScribbleIcon name={item.icon} className="size-6" />
                   </div>
                   <div className="space-y-3">
-                    <h3 className="text-xl font-extrabold uppercase tracking-[0.12em] text-foreground sm:text-2xl">
+                    <h3 className="section-card-title">
                       {item.title}
                     </h3>
-                    <p className="text-base leading-relaxed text-foreground-muted sm:text-lg">
+                    <p className="section-card-copy">
                       {item.description}
                     </p>
                   </div>
@@ -656,10 +656,10 @@ function Index() {
               {currentConfig.process.map((step) => (
                 <article key={step.number} className="process-card">
                   <p className="process-number">{step.number}</p>
-                  <h3 className="display-title text-[2rem] text-foreground sm:text-[2.3rem]">
+                  <h3 className="section-card-title">
                     {step.title}
                   </h3>
-                  <p className="text-base leading-relaxed text-foreground-muted sm:text-lg">
+                  <p className="section-card-copy">
                     {step.description}
                   </p>
                 </article>
@@ -789,16 +789,6 @@ function Index() {
             >
               <ScribbleIcon name="brief" className="size-5" />
               {currentConfig.footer.emailLabel} {currentConfig.contact.email}
-            </a>
-            <a
-              href={currentConfig.contact.instagramUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="footer-link"
-            >
-              <ScribbleIcon name="spark" className="size-5" />
-              {currentConfig.footer.instagramLabel}{' '}
-              {currentConfig.contact.instagramDisplay}
             </a>
           </div>
 

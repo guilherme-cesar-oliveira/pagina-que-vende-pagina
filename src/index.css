@@ -151,6 +151,14 @@
     @apply font-display uppercase leading-[0.94] tracking-[0.015em];
   }
 
+  .section-card-title {
+    @apply font-display text-[1.6rem] uppercase leading-[0.94] tracking-[0.015em] text-foreground sm:text-[1.85rem];
+  }
+
+  .section-card-copy {
+    @apply text-base leading-relaxed text-foreground-muted sm:text-lg;
+  }
+
   .display-hero {
     @apply font-display uppercase leading-[0.86] tracking-[0.01em];
     text-shadow: 0 10px 28px rgba(0, 0, 0, 0.34);
