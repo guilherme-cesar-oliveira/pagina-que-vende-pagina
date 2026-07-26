@@ -415,11 +415,7 @@ function Index() {
       return
     }
 
-    trackPixelEvent('Lead', {
-      content_name: currentConfig.branding.siteTitle,
-    })
-
-    openExternalUrl(
+    handleContactClick(
       buildQuoteWhatsAppUrl(formValues, currentConfig, window.location.search),
     )
   }

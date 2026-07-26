@@ -232,7 +232,7 @@ function mountFacebookPixel(pixelId: string) {
   }
 
   fbq('init', pixelId)
-  fbq('track', 'PageView')
+  fbq('track', 'ViewContent')
 
   return () => undefined
 }
