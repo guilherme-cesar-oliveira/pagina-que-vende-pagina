@@ -1,13 +1,4 @@
-export const ADMIN_HASH_ROUTE = '#/admin'
-export const SITE_HASH_ROUTE = '#/'
 export const SITE_DATABASE_URL = 'site-admin-db.json'
-export const SITE_DATABASE_STORAGE_KEY = 'hunt-digital.site-database.v1'
-export const ADMIN_SESSION_STORAGE_KEY = 'hunt-digital.admin-session.v1'
-
-export const ADMIN_CREDENTIALS = {
-  username: 'admin',
-  password: 'hunt2026!',
-} as const
 
 export type QuoteFormValues = {
   name: string
@@ -393,14 +384,6 @@ export function createFallbackSiteDatabase(): SiteDatabase {
     updatedAt: '2026-07-25T00:00:00.000Z',
     currentConfig: createFallbackSiteConfig(),
   }
-}
-
-export function cloneSiteConfig(config: SiteConfig): SiteConfig {
-  return structuredClone(config)
-}
-
-export function cloneSiteDatabase(database: SiteDatabase): SiteDatabase {
-  return structuredClone(database)
 }
 
 export function sanitizeWhatsAppNumber(value: string) {

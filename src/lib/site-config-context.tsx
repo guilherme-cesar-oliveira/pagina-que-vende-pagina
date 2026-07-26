@@ -7,14 +7,9 @@ import {
 } from 'react'
 
 import {
-  ADMIN_CREDENTIALS,
-  ADMIN_SESSION_STORAGE_KEY,
-  SITE_DATABASE_STORAGE_KEY,
   SITE_DATABASE_URL,
   buildGenericWhatsAppUrl,
   buildStructuredData,
-  cloneSiteConfig,
-  cloneSiteDatabase,
   createFallbackSiteDatabase,
   resolvePublicAssetUrl,
   type SiteConfig,
@@ -33,34 +28,13 @@ declare global {
 }
 
 type SiteConfigContextValue = {
-  database: SiteDatabase
   currentConfig: SiteConfig
   isReady: boolean
-  isAdminAuthenticated: boolean
-  saveCurrentConfig: (config: SiteConfig) => void
-  exportDatabase: () => string
-  importDatabase: (raw: string) => { ok: boolean; error?: string }
-  resetDatabase: () => void
-  signIn: (username: string, password: string) => boolean
-  signOut: () => void
-  publishedUrl: string
   genericWhatsAppUrl: string
   trackPixelEvent: (eventName: string, payload?: Record<string, unknown>) => void
 }
 
 const SiteConfigContext = createContext<SiteConfigContextValue | null>(null)
-
-function parseStoredDatabase(raw: string | null) {
-  if (!raw) {
-    return null
-  }
-
-  try {
-    return JSON.parse(raw) as SiteDatabase
-  } catch {
-    return null
-  }
-}
 
 async function loadSourceDatabase() {
   try {
@@ -74,20 +48,6 @@ async function loadSourceDatabase() {
     return (await response.json()) as SiteDatabase
   } catch {
     return createFallbackSiteDatabase()
-  }
-}
-
-function persistDatabase(database: SiteDatabase) {
-  window.localStorage.setItem(
-    SITE_DATABASE_STORAGE_KEY,
-    JSON.stringify(database, null, 2),
-  )
-}
-
-function touchDatabase(database: SiteDatabase) {
-  return {
-    ...database,
-    updatedAt: new Date().toISOString(),
   }
 }
 
@@ -278,33 +238,22 @@ function mountFacebookPixel(pixelId: string) {
 }
 
 export function SiteConfigProvider({ children }: { children: ReactNode }) {
-  const [sourceDatabase, setSourceDatabase] = useState<SiteDatabase>(
-    createFallbackSiteDatabase(),
-  )
   const [database, setDatabase] = useState<SiteDatabase>(
     createFallbackSiteDatabase(),
   )
   const [isReady, setIsReady] = useState(false)
-  const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(false)
 
   useEffect(() => {
     let active = true
 
     async function bootstrap() {
       const source = await loadSourceDatabase()
-      const stored = parseStoredDatabase(
-        window.localStorage.getItem(SITE_DATABASE_STORAGE_KEY),
-      )
-      const session =
-        window.localStorage.getItem(ADMIN_SESSION_STORAGE_KEY) === 'true'
 
       if (!active) {
         return
       }
 
-      setSourceDatabase(source)
-      setDatabase(stored ?? source)
-      setIsAdminAuthenticated(session)
+      setDatabase(source)
       setIsReady(true)
     }
 
@@ -342,62 +291,9 @@ export function SiteConfigProvider({ children }: { children: ReactNode }) {
   }, [database.currentConfig.tracking.facebookPixelId])
 
   const contextValue = useMemo<SiteConfigContextValue>(() => {
-    function updateDatabase(nextDatabase: SiteDatabase) {
-      const touched = touchDatabase(nextDatabase)
-      setDatabase(touched)
-      persistDatabase(touched)
-    }
-
     return {
-      database,
       currentConfig: database.currentConfig,
       isReady,
-      isAdminAuthenticated,
-      saveCurrentConfig(config) {
-        updateDatabase({
-          ...cloneSiteDatabase(database),
-          currentConfig: cloneSiteConfig(config),
-        })
-      },
-      exportDatabase() {
-        return JSON.stringify(database, null, 2)
-      },
-      importDatabase(raw) {
-        try {
-          const parsed = JSON.parse(raw) as SiteDatabase
-
-          if (!parsed.currentConfig) {
-            return { ok: false, error: 'Estrutura JSON invalida.' }
-          }
-
-          updateDatabase(parsed)
-          return { ok: true }
-        } catch {
-          return { ok: false, error: 'Nao foi possivel ler o JSON informado.' }
-        }
-      },
-      resetDatabase() {
-        const nextSource = cloneSiteDatabase(sourceDatabase)
-        setDatabase(nextSource)
-        persistDatabase(nextSource)
-      },
-      signIn(username, password) {
-        const isValid =
-          username === ADMIN_CREDENTIALS.username &&
-          password === ADMIN_CREDENTIALS.password
-
-        if (isValid) {
-          setIsAdminAuthenticated(true)
-          window.localStorage.setItem(ADMIN_SESSION_STORAGE_KEY, 'true')
-        }
-
-        return isValid
-      },
-      signOut() {
-        setIsAdminAuthenticated(false)
-        window.localStorage.removeItem(ADMIN_SESSION_STORAGE_KEY)
-      },
-      publishedUrl: window.location.href.split('#')[0],
       genericWhatsAppUrl: buildGenericWhatsAppUrl(
         database.currentConfig,
         window.location.search,
@@ -410,7 +306,7 @@ export function SiteConfigProvider({ children }: { children: ReactNode }) {
         window.fbq('track', eventName, payload ?? {})
       },
     }
-  }, [database, isAdminAuthenticated, isReady, sourceDatabase])
+  }, [database, isReady])
 
   return (
     <SiteConfigContext.Provider value={contextValue}>
