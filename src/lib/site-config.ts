@@ -11,8 +11,6 @@ export const ADMIN_CREDENTIALS = {
 
 export type QuoteFormValues = {
   name: string
-  phone: string
-  business: string
   goal: string
 }
 
@@ -186,8 +184,8 @@ export function createFallbackSiteConfig(): SiteConfig {
       siteTitle: 'Landing page para vender mais | Hunt Digital',
       brandName: 'Hunt Digital',
       brandSubtitle: 'Paginas que vendem',
-      logoUrl: './brand/hunt-logo.png',
-      faviconUrl: './brand/hunt-favicon.png',
+      logoUrl: './brand/hunt-icon.svg',
+      faviconUrl: './brand/hunt-icon.svg',
     },
     contact: {
       whatsappNumber: '5531999617435',
@@ -325,7 +323,7 @@ export function createFallbackSiteConfig(): SiteConfig {
         number: '01',
         title: 'Voce responde o basico',
         description:
-          'Nome, WhatsApp, negocio e o que a pagina precisa gerar.',
+          'Nome e o objetivo principal da pagina. O minimo para a Hunt responder com contexto.',
       },
       {
         number: '02',
@@ -438,8 +436,6 @@ export function buildQuoteWhatsAppMessage(
     config.contact.defaultMessage,
     '',
     `${config.form.nameLabel}: ${values.name.trim()}`,
-    `${config.form.phoneLabel}: ${values.phone.trim()}`,
-    `${config.form.businessLabel}: ${values.business.trim()}`,
     `${config.form.goalLabel}: ${values.goal.trim()}`,
   ]
 

@@ -19,10 +19,23 @@ import { useSiteConfig } from '@/lib/use-site-config'
 
 const initialFormValues: QuoteFormValues = {
   name: '',
-  phone: '',
-  business: '',
   goal: '',
 }
+
+const offerHighlights = [
+  {
+    icon: 'layout',
+    label: 'Layout sob medida',
+  },
+  {
+    icon: 'mobile',
+    label: 'Mobile-first',
+  },
+  {
+    icon: 'spark',
+    label: 'Pronto para conversao',
+  },
+] as const
 
 function ScribbleIcon({
   name,
@@ -304,13 +317,13 @@ function BrandLockup({
       <img
         src={resolvePublicAssetUrl(logoUrl)}
         alt={brandName}
-        className="h-11 w-auto sm:h-13"
+        className="h-16 w-auto sm:h-20 lg:h-[5.2rem]"
       />
       <div className="hidden min-w-0 sm:block">
-        <p className="text-sm font-extrabold uppercase tracking-[0.32em] text-foreground">
+        <p className="text-sm font-extrabold uppercase tracking-[0.32em] text-foreground lg:text-[0.92rem]">
           {brandSubtitle}
         </p>
-        <p className="mt-1 text-xs font-medium uppercase tracking-[0.28em] text-foreground-muted">
+        <p className="mt-1 text-xs font-medium uppercase tracking-[0.28em] text-foreground-muted lg:text-[0.8rem]">
           Conversao com direcao
         </p>
       </div>
@@ -334,24 +347,6 @@ function SectionHeading({
       <p className="section-copy max-w-2xl">{description}</p>
     </div>
   )
-}
-
-function formatPhone(value: string) {
-  const digits = value.replace(/\D/g, '').slice(0, 11)
-
-  if (digits.length <= 2) {
-    return digits ? `(${digits}` : ''
-  }
-
-  if (digits.length <= 7) {
-    return `(${digits.slice(0, 2)}) ${digits.slice(2)}`
-  }
-
-  if (digits.length <= 10) {
-    return `(${digits.slice(0, 2)}) ${digits.slice(2, 6)}-${digits.slice(6)}`
-  }
-
-  return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`
 }
 
 function openExternalUrl(url: string) {
@@ -384,14 +379,6 @@ function Index() {
 
     if (!values.name.trim()) {
       nextErrors.name = currentConfig.form.validationNameRequired
-    }
-
-    if (!values.phone.trim()) {
-      nextErrors.phone = currentConfig.form.validationPhoneRequired
-    }
-
-    if (!values.business.trim()) {
-      nextErrors.business = currentConfig.form.validationBusinessRequired
     }
 
     if (!values.goal.trim()) {
@@ -464,26 +451,32 @@ function Index() {
           <div className="hero-orb hero-orb-right" />
 
           <div className="layout-shell hero-grid py-10 sm:py-14 lg:py-18">
-            <div className="space-y-7">
-              <div className="hero-pill">
+            <div className="hero-content">
+              <div className="hero-pill motion-fade-up">
                 <span className="hero-pill-dot" />
-                {currentConfig.header.badgeText}
+                <span className="motion-type">{currentConfig.header.badgeText}</span>
               </div>
 
-              <div className="space-y-5">
+              <div className="space-y-5 motion-fade-up motion-delay-1">
                 <p className="section-eyebrow">{currentConfig.hero.eyebrow}</p>
-                <h1 className="display-hero max-w-[12ch] text-[clamp(3.9rem,16vw,8.5rem)] text-foreground">
-                  <span className="block">{currentConfig.hero.titleLineOne}</span>
-                  <span className="block">{currentConfig.hero.titleLineTwo}</span>
-                  <span className="block text-brand">
+                <h1 className="display-hero max-w-[8ch] text-[clamp(3.9rem,12vw,6.6rem)] text-foreground sm:max-w-[10ch] lg:max-w-none">
+                  <span className="block lg:whitespace-nowrap">
+                    {currentConfig.hero.titleLineOne}
+                  </span>
+                  <span className="block lg:whitespace-nowrap">
+                    {currentConfig.hero.titleLineTwo}
+                  </span>
+                  <span className="block text-brand lg:whitespace-nowrap">
                     {currentConfig.hero.titleHighlight}
                   </span>
                 </h1>
               </div>
 
-              <p className="hero-copy max-w-xl">{currentConfig.hero.description}</p>
+              <p className="hero-copy max-w-xl motion-fade-up motion-delay-2">
+                {currentConfig.hero.description}
+              </p>
 
-              <div className="hero-chip-grid">
+              <div className="hero-chip-grid motion-fade-up motion-delay-3">
                 {currentConfig.hero.proofItems.map((item) => (
                   <div key={item} className="hero-chip">
                     <ScribbleIcon name="spark" className="size-4" />
@@ -492,7 +485,7 @@ function Index() {
                 ))}
               </div>
 
-              <div className="flex flex-col gap-3 sm:flex-row">
+              <div className="flex flex-col gap-3 sm:flex-row motion-fade-up motion-delay-4">
                 <Button
                   type="button"
                   size="lg"
@@ -515,66 +508,6 @@ function Index() {
               </div>
             </div>
 
-            <div className="space-y-5">
-              <aside className="offer-card">
-                <div className="flex items-start justify-between gap-4">
-                  <div className="space-y-2">
-                    <p className="offer-badge">{currentConfig.offer.badge}</p>
-                    <p className="text-sm font-semibold uppercase tracking-[0.28em] text-foreground-muted">
-                      {currentConfig.offer.priceLabel}
-                    </p>
-                  </div>
-                  <div className="icon-disc">
-                    <ScribbleIcon name="rocket" className="size-6" />
-                  </div>
-                </div>
-
-                <div className="mt-7 space-y-3">
-                  <p className="price-display">{currentConfig.offer.priceDisplay}</p>
-                  <p className="text-lg leading-relaxed text-foreground">
-                    {currentConfig.offer.priceCaption}
-                  </p>
-                  <p className="text-base leading-relaxed text-foreground-muted">
-                    {currentConfig.offer.note}
-                  </p>
-                </div>
-
-                <Button
-                  type="button"
-                  size="lg"
-                  className="mt-7 w-full"
-                  onClick={() => handleContactClick(genericWhatsAppUrl)}
-                >
-                  <ScribbleIcon name="chat" className="size-5" />
-                  {currentConfig.offer.ctaLabel}
-                </Button>
-              </aside>
-
-              <div className="mock-panel">
-                <div className="mock-device">
-                  <div className="mock-screen">
-                    <p className="section-eyebrow text-brand/90">Mobile-first</p>
-                    <h2 className="display-title mt-3 max-w-[10ch] text-[2.5rem] text-foreground">
-                      Pagina curta. Oferta clara. Clique facil.
-                    </h2>
-                    <div className="mt-6 grid gap-3">
-                      <div className="mock-row">
-                        <ScribbleIcon name="target" className="size-5" />
-                        CTA bem posicionado
-                      </div>
-                      <div className="mock-row">
-                        <ScribbleIcon name="brief" className="size-5" />
-                        Briefing rapido no WhatsApp
-                      </div>
-                      <div className="mock-row">
-                        <ScribbleIcon name="search" className="size-5" />
-                        SEO base e Pixel prontos
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
 
@@ -655,6 +588,63 @@ function Index() {
         </section>
 
         <section className="section-shell border-t border-brand/14">
+          <div className="layout-shell py-10 sm:py-12 lg:py-14">
+            <div className="hero-support-grid">
+              <aside className="offer-card motion-fade-up motion-delay-2">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="space-y-2">
+                    <p className="offer-badge">
+                      <span className="motion-type">{currentConfig.offer.badge}</span>
+                    </p>
+                    <p className="text-sm font-semibold uppercase tracking-[0.28em] text-foreground-muted">
+                      {currentConfig.offer.priceLabel}
+                    </p>
+                  </div>
+                  <div className="icon-disc motion-pulse-soft">
+                    <ScribbleIcon name="rocket" className="size-6" />
+                  </div>
+                </div>
+
+                <div className="offer-card-grid">
+                  <div className="offer-card-main">
+                    <p className="price-display">{currentConfig.offer.priceDisplay}</p>
+                    <p className="text-base leading-relaxed text-foreground-muted">
+                      {currentConfig.offer.note}
+                    </p>
+                  </div>
+
+                  <div
+                    className="offer-card-side"
+                    aria-label="Destaques da oferta"
+                  >
+                    <div className="offer-highlight-list">
+                      {offerHighlights.map((item) => (
+                        <div key={item.label} className="offer-highlight-row">
+                          <div className="icon-disc icon-disc-compact">
+                            <ScribbleIcon name={item.icon} className="size-4" />
+                          </div>
+                          <span>{item.label}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <Button
+                  type="button"
+                  size="lg"
+                  className="mt-6 w-full motion-pulse-soft"
+                  onClick={() => handleContactClick(genericWhatsAppUrl)}
+                >
+                  <ScribbleIcon name="chat" className="size-5" />
+                  {currentConfig.offer.ctaLabel}
+                </Button>
+              </aside>
+            </div>
+          </div>
+        </section>
+
+        <section className="section-shell border-t border-brand/14">
           <div className="layout-shell py-12 sm:py-14 lg:py-16">
             <SectionHeading
               eyebrow={currentConfig.processSection.eyebrow}
@@ -680,37 +670,29 @@ function Index() {
 
         <section ref={formRef} className="section-shell border-t border-brand/14">
           <div className="layout-shell py-12 sm:py-14 lg:py-16">
-            <div className="quote-panel">
-              <div className="space-y-5">
-                <p className="section-eyebrow text-black/65">
-                  {currentConfig.formSection.eyebrow}
+            <div className="quote-panel motion-glow-pulse">
+              <div className="space-y-5 motion-fade-up">
+                <p className="section-eyebrow text-brand/88">
+                  <span className="motion-type">{currentConfig.formSection.eyebrow}</span>
                 </p>
-                <h2 className="display-title max-w-[11ch] text-[clamp(2.8rem,10vw,5rem)] text-black">
+                <h2 className="display-title max-w-[14ch] text-[clamp(2.2rem,7vw,4rem)] text-foreground">
                   {currentConfig.formSection.title}
                 </h2>
-                <p className="max-w-md text-base leading-relaxed text-black/72 sm:text-lg">
+                <p className="max-w-2xl text-base leading-relaxed text-foreground-muted sm:text-lg">
                   {currentConfig.formSection.description}
                 </p>
-
-                <div className="quote-side-card">
-                  <div className="icon-disc icon-disc-dark">
-                    <ScribbleIcon name="brief" className="size-5" />
-                  </div>
-                  <div className="space-y-2">
-                    <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-black">
-                      O que a Hunt recebe
-                    </p>
-                    <p className="text-sm leading-relaxed text-black/70 sm:text-base">
-                      Nome, WhatsApp, seu negocio e o objetivo da pagina. O minimo para nao cair lead em branco.
-                    </p>
-                  </div>
-                </div>
               </div>
 
-              <form className="space-y-5" onSubmit={handleSubmit} noValidate>
-                <div className="grid gap-5 md:grid-cols-2">
-                  <div className="space-y-3">
-                    <Label htmlFor="name">{currentConfig.form.nameLabel}</Label>
+              <form
+                className="space-y-5 motion-fade-up motion-delay-2"
+                onSubmit={handleSubmit}
+                noValidate
+              >
+                <div className="grid gap-7">
+                  <div className="space-y-6">
+                    <Label htmlFor="name" className="block leading-[1.35]">
+                      {currentConfig.form.nameLabel}
+                    </Label>
                     <Input
                       id="name"
                       name="name"
@@ -718,51 +700,17 @@ function Index() {
                       onChange={(event) => updateField('name', event.target.value)}
                       placeholder={currentConfig.form.namePlaceholder}
                       aria-invalid={Boolean(formErrors.name)}
+                      className="border-brand/28 bg-black/72 shadow-[0_0_0_1px_rgba(236,57,56,0.08),0_0_24px_rgba(236,57,56,0.08)] focus-visible:border-brand/70 focus-visible:ring-brand/45"
                     />
                     {formErrors.name ? (
                       <p className="form-error">{formErrors.name}</p>
                     ) : null}
                   </div>
 
-                  <div className="space-y-3">
-                    <Label htmlFor="phone">{currentConfig.form.phoneLabel}</Label>
-                    <Input
-                      id="phone"
-                      name="phone"
-                      inputMode="tel"
-                      value={formValues.phone}
-                      onChange={(event) =>
-                        updateField('phone', formatPhone(event.target.value))
-                      }
-                      placeholder={currentConfig.form.phonePlaceholder}
-                      aria-invalid={Boolean(formErrors.phone)}
-                    />
-                    {formErrors.phone ? (
-                      <p className="form-error">{formErrors.phone}</p>
-                    ) : null}
-                  </div>
-
-                  <div className="space-y-3 md:col-span-2">
-                    <Label htmlFor="business">
-                      {currentConfig.form.businessLabel}
+                  <div className="space-y-6">
+                    <Label htmlFor="goal" className="block leading-[1.35]">
+                      {currentConfig.form.goalLabel}
                     </Label>
-                    <Input
-                      id="business"
-                      name="business"
-                      value={formValues.business}
-                      onChange={(event) =>
-                        updateField('business', event.target.value)
-                      }
-                      placeholder={currentConfig.form.businessPlaceholder}
-                      aria-invalid={Boolean(formErrors.business)}
-                    />
-                    {formErrors.business ? (
-                      <p className="form-error">{formErrors.business}</p>
-                    ) : null}
-                  </div>
-
-                  <div className="space-y-3 md:col-span-2">
-                    <Label htmlFor="goal">{currentConfig.form.goalLabel}</Label>
                     <Select
                       value={formValues.goal}
                       onValueChange={(value) => updateField('goal', value)}
@@ -770,6 +718,7 @@ function Index() {
                       <SelectTrigger
                         id="goal"
                         aria-invalid={Boolean(formErrors.goal)}
+                        className="border-brand/28 bg-black/72 shadow-[0_0_0_1px_rgba(236,57,56,0.08),0_0_24px_rgba(236,57,56,0.08)] focus-visible:border-brand/70 focus-visible:ring-brand/45"
                       >
                         <SelectValue
                           placeholder={currentConfig.form.goalPlaceholder}
@@ -799,49 +748,11 @@ function Index() {
                     <ScribbleIcon name="chat" className="size-5" />
                     {currentConfig.formSection.submitLabel}
                   </Button>
-                  <p className="text-center text-sm leading-relaxed text-black/62 sm:text-base">
+                  <p className="text-center text-sm leading-relaxed text-foreground-muted sm:text-base">
                     {currentConfig.formSection.helperText}
                   </p>
                 </div>
               </form>
-            </div>
-          </div>
-        </section>
-
-        <section className="section-shell border-t border-brand/14">
-          <div className="layout-shell py-12 sm:py-14 lg:py-16">
-            <div className="closing-card">
-              <div className="space-y-4">
-                <p className="section-eyebrow">{currentConfig.closing.eyebrow}</p>
-                <h2 className="display-title max-w-[13ch] text-[clamp(2.8rem,9vw,5rem)] text-foreground">
-                  {currentConfig.closing.title}
-                </h2>
-                <p className="max-w-2xl text-base leading-relaxed text-foreground-muted sm:text-lg">
-                  {currentConfig.closing.description}
-                </p>
-              </div>
-
-              <div className="flex flex-col gap-3 sm:flex-row">
-                <Button
-                  type="button"
-                  size="lg"
-                  className="w-full sm:w-auto"
-                  onClick={() => handleContactClick(genericWhatsAppUrl)}
-                >
-                  <ScribbleIcon name="chat" className="size-5" />
-                  {currentConfig.closing.ctaLabel}
-                </Button>
-                <Button
-                  type="button"
-                  variant="outline"
-                  size="lg"
-                  className="w-full sm:w-auto"
-                  onClick={() => scrollToSection('form')}
-                >
-                  <ScribbleIcon name="brief" className="size-5" />
-                  Preencher formulario
-                </Button>
-              </div>
             </div>
           </div>
         </section>
