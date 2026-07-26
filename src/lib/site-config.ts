@@ -214,7 +214,7 @@ export function createFallbackSiteConfig(): SiteConfig {
       themeColor: '#050505',
     },
     tracking: {
-      facebookPixelId: '',
+      facebookPixelId: '1563231485070792',
     },
     snippets: {
       head: '',
