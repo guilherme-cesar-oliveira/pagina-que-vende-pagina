@@ -37,6 +37,33 @@ const offerHighlights = [
   },
 ] as const
 
+const benefitStripItems = [
+  {
+    icon: 'rocket',
+    title: 'Visual que chama',
+    description:
+      'Layout de impacto com leitura limpa e identidade alinhada para campanha.',
+  },
+  {
+    icon: 'target',
+    title: 'CTA no lugar certo',
+    description:
+      'Botoes e blocos organizados para facilitar o proximo passo do visitante.',
+  },
+  {
+    icon: 'bolt',
+    title: 'Leve para anunciar',
+    description:
+      'Estrutura enxuta, responsiva e pensada para carregar rapido no mobile.',
+  },
+  {
+    icon: 'mobile',
+    title: 'Feita para celular',
+    description:
+      'A maior parte do trafego cai no smartphone, entao o foco comeca nele.',
+  },
+] as const
+
 function ScribbleIcon({
   name,
   className,
@@ -448,12 +475,12 @@ function Index() {
 
           <div className="layout-shell hero-grid py-10 sm:py-14 lg:py-18">
             <div className="hero-content">
-              <div className="hero-pill motion-fade-up">
+              <div className="hero-pill">
                 <span className="hero-pill-dot" />
-                <span className="motion-type">{currentConfig.header.badgeText}</span>
+                <span>{currentConfig.header.badgeText}</span>
               </div>
 
-              <div className="space-y-5 motion-fade-up motion-delay-1">
+              <div className="space-y-5">
                 <p className="section-eyebrow">{currentConfig.hero.eyebrow}</p>
                 <h1 className="display-hero max-w-[8ch] text-[clamp(3.9rem,12vw,6.6rem)] text-foreground sm:max-w-[10ch] lg:max-w-none">
                   <span className="block lg:whitespace-nowrap">
@@ -468,11 +495,11 @@ function Index() {
                 </h1>
               </div>
 
-              <p className="hero-copy max-w-xl motion-fade-up motion-delay-2">
+              <p className="hero-copy max-w-xl">
                 {currentConfig.hero.description}
               </p>
 
-              <div className="hero-chip-grid motion-fade-up motion-delay-3">
+              <div className="hero-chip-grid">
                 {currentConfig.hero.proofItems.map((item) => (
                   <div key={item} className="hero-chip">
                     <ScribbleIcon name="spark" className="size-4" />
@@ -481,7 +508,7 @@ function Index() {
                 ))}
               </div>
 
-              <div className="flex flex-col gap-3 sm:flex-row motion-fade-up motion-delay-4">
+              <div className="flex flex-col gap-3 sm:flex-row">
                 <Button
                   type="button"
                   size="lg"
@@ -509,7 +536,7 @@ function Index() {
 
         <section className="benefit-strip">
           <div className="layout-shell grid gap-3 py-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4 lg:py-5">
-            {currentConfig.benefits.map((benefit) => (
+            {benefitStripItems.map((benefit) => (
               <article key={benefit.title} className="benefit-pill-card">
                 <div className="icon-disc">
                   <ScribbleIcon name={benefit.icon} className="size-5" />
@@ -586,11 +613,11 @@ function Index() {
         <section className="section-shell border-t border-brand/14">
           <div className="layout-shell py-10 sm:py-12 lg:py-14">
             <div className="hero-support-grid">
-              <aside className="offer-card motion-fade-up motion-delay-2">
+              <aside className="offer-card">
                 <div className="flex items-start justify-between gap-4">
                   <div className="space-y-2">
                     <p className="offer-badge">
-                      <span className="motion-type">{currentConfig.offer.badge}</span>
+                      <span>{currentConfig.offer.badge}</span>
                     </p>
                     <p className="max-w-full pr-8 text-sm font-semibold uppercase tracking-[0.16em] text-foreground-muted sm:tracking-[0.28em]">
                       {currentConfig.offer.priceLabel}
@@ -667,9 +694,9 @@ function Index() {
         <section ref={formRef} className="section-shell border-t border-brand/14">
           <div className="layout-shell py-12 sm:py-14 lg:py-16">
             <div className="quote-panel motion-glow-pulse">
-              <div className="space-y-5 motion-fade-up">
+              <div className="space-y-5">
                 <p className="section-eyebrow text-brand/88">
-                  <span className="motion-type">{currentConfig.formSection.eyebrow}</span>
+                  <span>{currentConfig.formSection.eyebrow}</span>
                 </p>
                 <h2 className="display-title max-w-[14ch] text-[clamp(2.2rem,7vw,4rem)] text-foreground">
                   {currentConfig.formSection.title}
@@ -680,7 +707,7 @@ function Index() {
               </div>
 
               <form
-                className="space-y-5 motion-fade-up motion-delay-2"
+                className="space-y-5"
                 onSubmit={handleSubmit}
                 noValidate
               >

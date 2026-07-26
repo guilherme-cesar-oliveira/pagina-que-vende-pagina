@@ -378,39 +378,6 @@
     @apply inline-flex w-fit items-center gap-2 text-left text-foreground transition-colors hover:text-brand;
   }
 
-  .motion-fade-up {
-    animation: fade-up 0.8s var(--ease-snap) both;
-  }
-
-  .motion-delay-1 {
-    animation-delay: 0.08s;
-  }
-
-  .motion-delay-2 {
-    animation-delay: 0.16s;
-  }
-
-  .motion-delay-3 {
-    animation-delay: 0.24s;
-  }
-
-  .motion-delay-4 {
-    animation-delay: 0.32s;
-  }
-
-  .motion-type {
-    display: inline-block;
-    width: max-content;
-    max-width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: 1px solid currentColor;
-    clip-path: inset(0 100% 0 0);
-    animation:
-      typing-reveal 2.3s steps(28, end) 0.15s forwards,
-      caret-blink 0.85s step-end infinite;
-  }
-
   .motion-pulse-soft {
     animation: pulse-soft 4.4s ease-in-out infinite;
     transform-origin: center;
@@ -441,43 +408,6 @@
     padding-bottom: 1.125rem;
   }
 
-  .motion-type {
-    max-width: 100%;
-  }
-}
-
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 18px, 0);
-  }
-
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes typing-reveal {
-  from {
-    clip-path: inset(0 100% 0 0);
-  }
-
-  to {
-    clip-path: inset(0 0 0 0);
-  }
-}
-
-@keyframes caret-blink {
-  0%,
-  45% {
-    border-color: currentColor;
-  }
-
-  50%,
-  100% {
-    border-color: transparent;
-  }
 }
 
 @keyframes pulse-soft {
