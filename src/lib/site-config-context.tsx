@@ -35,6 +35,7 @@ type SiteConfigContextValue = {
 }
 
 const SiteConfigContext = createContext<SiteConfigContextValue | null>(null)
+const BUILD_ID = '2026-07-27-refresh-1'
 
 async function loadSourceDatabase() {
   try {
@@ -265,6 +266,7 @@ export function SiteConfigProvider({ children }: { children: ReactNode }) {
   }, [])
 
   useEffect(() => {
+    document.documentElement.dataset.buildId = BUILD_ID
     applyThemeColors(database.currentConfig)
     applySeo(database.currentConfig)
     ensureJsonScript('structured-data', buildStructuredData(database.currentConfig))
