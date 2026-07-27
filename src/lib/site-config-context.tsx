@@ -39,7 +39,7 @@ type SiteConfigContextValue = {
 }
 
 const SiteConfigContext = createContext<SiteConfigContextValue | null>(null)
-const BUILD_ID = '2026-07-27-refresh-2'
+const BUILD_ID = '2026-07-27-refresh-3'
 
 async function loadSourceDatabase() {
   try {
@@ -198,50 +198,6 @@ function mountSnippet(target: HTMLElement, html: string, scope: string) {
   }
 }
 
-function ensureFacebookPixelBase() {
-  if (window.fbq) {
-    return window.fbq
-  }
-
-  const fbq = ((...args: unknown[]) => {
-    if (!fbq.queue) {
-      fbq.queue = []
-    }
-
-    fbq.queue.push(args)
-  }) as NonNullable<Window['fbq']>
-
-  fbq.queue = []
-  fbq.loaded = true
-  fbq.version = '2.0'
-  window.fbq = fbq
-  window._fbq = fbq
-
-  return fbq
-}
-
-function mountFacebookPixel(pixelId: string) {
-  if (!pixelId.trim()) {
-    return () => undefined
-  }
-
-  const fbq = ensureFacebookPixelBase()
-  const loaderId = 'facebook-pixel-loader'
-
-  if (!document.getElementById(loaderId)) {
-    const script = document.createElement('script')
-    script.id = loaderId
-    script.async = true
-    script.src = 'https://connect.facebook.net/en_US/fbevents.js'
-    document.head.appendChild(script)
-  }
-
-  fbq('init', pixelId)
-  fbq('track', 'ViewContent')
-
-  return () => undefined
-}
-
 export function SiteConfigProvider({ children }: { children: ReactNode }) {
   const [database, setDatabase] = useState<SiteDatabase>(
     createFallbackSiteDatabase(),
@@ -291,10 +247,6 @@ export function SiteConfigProvider({ children }: { children: ReactNode }) {
       cleanupBody()
     }
   }, [database])
-
-  useEffect(() => {
-    return mountFacebookPixel(database.currentConfig.tracking.facebookPixelId)
-  }, [database.currentConfig.tracking.facebookPixelId])
 
   const contextValue = useMemo<SiteConfigContextValue>(() => {
     return {
