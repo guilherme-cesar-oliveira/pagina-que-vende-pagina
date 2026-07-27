@@ -406,7 +406,7 @@ function Index() {
       content_name: currentConfig.branding.siteTitle,
     }
 
-    trackPixelEvent('Contact', pixelPayload)
+    trackPixelEvent('Lead', pixelPayload)
     trackPixelCustomEvent('WhatsAppButtonClick', pixelPayload)
     openExternalUrl(url)
   }
@@ -457,7 +457,6 @@ function Index() {
     }
 
     trackPixelEvent('Lead', pixelPayload)
-    trackPixelEvent('Contact', pixelPayload)
     trackPixelCustomEvent('QualifiedFormSubmit', pixelPayload)
     trackPixelCustomEvent('WhatsAppButtonClick', pixelPayload)
     openExternalUrl(
