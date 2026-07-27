@@ -32,6 +32,10 @@ type SiteConfigContextValue = {
   isReady: boolean
   genericWhatsAppUrl: string
   trackPixelEvent: (eventName: string, payload?: Record<string, unknown>) => void
+  trackPixelCustomEvent: (
+    eventName: string,
+    payload?: Record<string, unknown>,
+  ) => void
 }
 
 const SiteConfigContext = createContext<SiteConfigContextValue | null>(null)
@@ -304,6 +308,13 @@ export function SiteConfigProvider({ children }: { children: ReactNode }) {
         }
 
         window.fbq('track', eventName, payload ?? {})
+      },
+      trackPixelCustomEvent(eventName, payload) {
+        if (!window.fbq) {
+          return
+        }
+
+        window.fbq('trackCustom', eventName, payload ?? {})
       },
     }
   }, [database, isReady])

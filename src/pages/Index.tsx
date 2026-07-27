@@ -381,7 +381,12 @@ function openExternalUrl(url: string) {
 }
 
 function Index() {
-  const { currentConfig, genericWhatsAppUrl, trackPixelEvent } = useSiteConfig()
+  const {
+    currentConfig,
+    genericWhatsAppUrl,
+    trackPixelEvent,
+    trackPixelCustomEvent,
+  } = useSiteConfig()
   const includedRef = useRef<HTMLElement | null>(null)
   const formRef = useRef<HTMLElement | null>(null)
   const [formValues, setFormValues] = useState(initialFormValues)
@@ -395,9 +400,13 @@ function Index() {
   }
 
   function handleContactClick(url: string) {
-    trackPixelEvent('Contact', {
+    const pixelPayload = {
       content_name: currentConfig.branding.siteTitle,
-    })
+      destination: 'whatsapp',
+    }
+
+    trackPixelEvent('Contact', pixelPayload)
+    trackPixelCustomEvent('SubscribedButtonClick', pixelPayload)
     openExternalUrl(url)
   }
 
