@@ -393,6 +393,8 @@ function Index() {
   const [formErrors, setFormErrors] = useState<
     Partial<Record<keyof QuoteFormValues, string>>
   >({})
+  const isFormReady =
+    formValues.name.trim().length > 0 && formValues.goal.trim().length > 0
 
   function scrollToSection(section: 'included' | 'form') {
     const target = section === 'included' ? includedRef.current : formRef.current
@@ -778,6 +780,7 @@ function Index() {
                     type="submit"
                     variant="whatsapp"
                     size="lg"
+                    disabled={!isFormReady}
                     className="w-full px-4 text-[0.9rem] tracking-[0.12em] sm:px-8 sm:text-base sm:tracking-[0.22em]"
                   >
                     <ScribbleIcon name="chat" className="size-5" />
